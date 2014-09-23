@@ -1,0 +1,34 @@
+<app-conf>
+	<encryption>false</encryption>
+	
+	<push>
+		<launch-activity-class>com.srijan.taskassignmentapp.MainActivity</launch-activity-class>
+		<icon-name>push</icon-name>
+		<!-- enable background re-establishment of the Push Socket if its disconnected -->
+		<reconnect/>
+	</push>
+		
+	<channels>
+	    <channel name='task_creation_channel'>
+			<sync-push-message>Your created task has been saved in backend. Collect its syncId and ServerId</sync-push-message>
+		</channel>
+		
+	    
+		<channel name='task_assignee_channel'>
+			<sync-push-message>You have been assigned a task</sync-push-message>
+		</channel>
+		
+		<channel name='assignee_response_sync_channel'>
+			<sync-push-message>you being an assignee, youe response has been saved in backed. Collect its SyncId and ServerId</sync-push-message>
+		</channel>
+		
+
+		<channel name='creator_response_sync_channel'>
+			<sync-push-message>You have been responded over your created task by assignee</sync-push-message>
+		</channel>
+				
+		
+	</channels>
+	
+	
+</app-conf>

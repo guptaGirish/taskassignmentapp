@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    tools:ignore="UselessParent"
+    android:orientation="horizontal" >
+    
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:weightSum="20">
+    
+   
+    
+    <LinearLayout
+    		android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_weight="4"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="10dp"
+            
+         >
+            
+        
+        
+       
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+             >
+        
+        
+        <TextView
+            android:id="@+id/taskTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:minLines="1"
+            android:textSize="12sp"
+            android:maxLines="3"
+            android:text="Task Title" />
+
+        <TextView
+            android:id="@+id/taskDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:minLines="1"
+            android:maxLines="2"
+            android:text="Task Desc" />
+        
+        
+        <LinearLayout
+			android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+		
+		>
+       	 <TextView
+           
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:text="By " />
+        
+        <TextView
+            android:id="@+id/creator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:text="Girish" />
+            
+            
+            
+        </LinearLayout>
+        
+        </LinearLayout>
+        
+        </LinearLayout>
+    
+    	
+    	<RelativeLayout 
+    	    android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="16"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+           	
+    	    >
+    
+    	
+    	<TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="12, July" />
+    
+    	</RelativeLayout>
+    	
+    </LinearLayout>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+       <RelativeLayout
+        tools:ignore="UselessParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="3dp"
+         >
+
+        
+        
+
+        
+        
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+         >
+        <TextView
+            android:id="@+id/id_sync_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        
+         <TextView
+            android:id="@+id/id_server_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        
+        </LinearLayout>
+        
+        
+        
+  </RelativeLayout>
+  
+
+</RelativeLayout>
+
+
+

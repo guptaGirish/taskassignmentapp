@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.srijan.taskassignmentapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+    
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.srijan.taskassignmentapp.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.srijan.taskassignmentapp.RegisterDeviceActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.srijan.taskassignmentapp.RegisterDeviceActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        
+        
+        <activity
+            android:name="com.srijan.taskassignmentapp.taskresponder.AssignedTaskListingActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.srijan.taskassignmentapp.taskresponder.AssignedTaskListingActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        
+        
+        <activity
+            android:name="com.srijan.taskassignmentapp.taskcreater.FullTaskDetailActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.srijan.taskassignmentapp.taskcreater.FullTaskDetailActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.srijan.taskassignmentapp.taskresponder.AssignedTaskFullDetailsActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.srijan.taskassignmentapp.taskresponder.AssignedTaskFullDetailsActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.srijan.taskassignmentapp.taskcreater.TaskListingActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.srijan.taskassignmentapp.taskcreater.TaskListingActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+         <activity
+            android:name="com.srijan.taskassignmentapp.taskcreater.TaskCreatingActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.srijan.taskassignmentapp.taskcreater.TaskCreatingActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        
+        <receiver android:name="com.srijan.taskassignmentapp.receivers.SubPushBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="com.openmobster.sample" />
+            </intent-filter>
+        </receiver>
+        
+        
+        
+        <receiver android:name="org.openmobster.core.mobileCloud.api.ui.framework.push.PushBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="com.openmobster.sample" />
+            </intent-filter>
+        </receiver>
+        
+        
+        
+        <receiver android:name="org.openmobster.core.mobileCloud.push.StartSyncBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="org.openmobster.sync.start" />
+            </intent-filter>
+        </receiver>
+        
+        
+         <service
+            android:name="org.openmobster.core.mobileCloud.push.StartSync"
+            android:exported="false" >
+        </service>
+        
+        
+        <receiver android:name="org.openmobster.core.mobileCloud.push.NetworkStartupBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        
+        
+         <service
+            android:name="org.openmobster.core.mobileCloud.push.StartNetwork"
+            android:exported="false" >
+        </service>
+        
+        
+         <receiver android:name="org.openmobster.core.mobileCloud.android.module.connection.ActivatePushSocket" >
+        </receiver>
+        
+
+        <service
+            android:name="org.openmobster.core.mobileCloud.android.module.connection.BackgroundActivatePushSocket"
+            android:exported="false" >
+        </service>
+        
+          <receiver android:name="org.openmobster.core.mobileCloud.android.module.connection.DeadSocketDetector">
+            <intent-filter>
+                    <action android:name="com.openmobster.sample" />
+            </intent-filter>
+        </receiver>
+        
+        
+         <service android:name="org.openmobster.core.mobileCloud.android.module.connection.DeadSocketService" android:exported="false">
+    	</service>
+    </application>
+
+</manifest>
