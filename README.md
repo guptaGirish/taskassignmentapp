@@ -4,9 +4,9 @@ taskassignmentapp
 Task Assignment App
 
 Use case -
-This app is to assign the task to person whoever is using app. Creater create task and assign it to a assignee. Assignee gets a notification when he is assigned a task. Assignee's can also send response back to creater over assigned task. Createe gets a notification on his device when he is responded back by assignee. 
+This app is to assign the task to whoever is using app. Creater creates task and assigns it to a assignee. Assignee gets a notification when he is assigned a task. Assignee can also send response back to creater over assigned task. Createe gets a notification on his device when he is responded back by assignee. 
 
-This app is under development. This app has been built to demonstrate the integration of android apps with open source backend as a service named "Openmobster"(https://code.google.com/p/openmobster) so that enterprise app can be built up.
+This app is under development. This app has been built to demonstrate the integration of android apps with open source backend as a service named "Openmobster"(https://code.google.com/p/openmobster) so that enterprise apps can be built up.
 
 This integrated system has 2 parts -
 
@@ -19,7 +19,7 @@ This integrated system has 2 parts -
 To start using app-
 First, you will have to set up cloud server part on JBOSS server. Deployment of cloud server code is similar to as mentioned on link below -
 http://openmobster.googlecode.com/svn/wiki/content/app-developer-guide/html/crud.html#d0e425
-While setting up server code, you will have to make sure that you have configured one sql database with cloud server. You can configure the details mysql db in this file -
+While setting up server code, you will have to make sure that you have configured one mysql database with cloud server. You can configure the details mysql db in this file -
 https://github.com/guptaGirish/taskassignmentapp/blob/master/TaskAssignmentCloudServer/target/classes/taskcrud.cfg.xml
 
 
