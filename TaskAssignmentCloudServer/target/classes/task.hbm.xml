@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 Aug, 2014 2:59:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.crud.cloud.crm.Task" table="tasks">
+        
+        <id name="serverTaskId" type="long">
+            <column name="server_task_id" />
+            <generator class="native"/>
+        </id>
+        
+        <property name="mobileTaskId" type="long" not-null="true">
+            <column name="mobile_task_id" />
+        </property>
+        
+        <property name="taskSyncId" type="java.lang.String" not-null="true" unique="true">
+            <column name="task_sync_id" />
+        </property>
+        
+        <property name="assigneDeviceId" type="java.lang.String" not-null="true">
+            <column name="assignee_device_id" />
+        </property>
+        
+        <property name="createrDeviceId" type="java.lang.String" not-null="true">
+            <column name="creater_device_id" />
+        </property>
+        
+        <property name="taskTitle" type="java.lang.String" not-null="true">
+            <column name="task_title" />
+        </property>
+        
+        <property name="taskDesc" type="java.lang.String">
+            <column name="task_desc" />
+        </property>
+        
+        <property name="taskMobileTimeStamp" type="java.lang.String" not-null="true">
+            <column name="task_mobile_taskstamp" />
+        </property>
+        
+        <property name="taskServerTimeStamp" type="timestamp" not-null="true">
+            <column name="task_server_timestamp" />
+        </property>
+        
+        <property name="taskStatus" type="int" not-null="true">
+            <column name="task_status" />
+        </property>
+    </class>
+</hibernate-mapping>

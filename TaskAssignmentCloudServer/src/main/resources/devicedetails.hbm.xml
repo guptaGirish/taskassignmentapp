@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 Aug, 2014 3:25:00 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.crud.cloud.crm.DeviceDetails" table="devices">
+
+        <id name="deviceId" type="java.lang.String">
+            <column name="device_id" />
+            <generator class="assigned" />
+        </id>
+        
+        <property name="lastTimeActivatedTimeStamp" type="timestamp" not-null="true">
+            <column name="last_time_activated_timestamp" />
+        </property>
+        
+        <property name="deviceUserName" type="java.lang.String" not-null="true">
+            <column name="device_user_name" />
+        </property>
+        
+        <property name="deviceUserContact" type="java.lang.String" not-null="true">
+            <column name="device_user_contact" />
+        </property>
+        
+        <property name="deviceUserCompany" type="java.lang.String" not-null="true">
+            <column name="device_user_company" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<deployment xmlns="urn:jboss:bean-deployer:2.0">
+   <!--  Register the MobileChannel -->
+   <bean name="task_creation_channel" class="org.crud.cloud.crm.TaskCreationChannel">
+   		<property name="ds">
+   	  		<inject bean="/crm/TaskDS"/>
+   		</property>
+   		<property name="deviceDetailsDs">
+   	  		<inject bean="/crm/DeviceDetailsDS"/>
+   		</property>
+   		<property name="deviceController">
+   	  		<inject bean="security://DeviceController"/>
+   		</property>
+   		
+   </bean>
+   
+   <bean name="task_assignee_channel" class="org.crud.cloud.crm.TaskAssigneeChannel">
+   		<property name="ds">
+   	  		<inject bean="/crm/TaskDS"/>
+   		</property>
+   		<property name="deviceDetailsDs">
+   	  		<inject bean="/crm/DeviceDetailsDS"/>
+   		</property>
+   		<property name="deviceController">
+   	  		<inject bean="security://DeviceController"/>
+   		</property>
+   		
+   </bean>
+   
+   
+   <bean name="assignee_response_sync_channel" class="org.crud.cloud.crm.AssigneeResponseSyncChannel">
+   		<property name="ds">
+   	  		<inject bean="/crm/ResponseDS"/>
+   		</property>
+   		<property name="deviceDetailsDs">
+   	  		<inject bean="/crm/DeviceDetailsDS"/>
+   		</property>
+   		<property name="deviceController">
+   	  		<inject bean="security://DeviceController"/>
+   		</property>
+   		
+   </bean>
+   
+   <bean name="creator_response_sync_channel" class="org.crud.cloud.crm.CreatorResponseSyncChannel">
+   		<property name="ds">
+   	  		<inject bean="/crm/ResponseDS"/>
+   		</property>
+   		<property name="deviceDetailsDs">
+   	  		<inject bean="/crm/DeviceDetailsDS"/>
+   		</property>
+   		<property name="deviceController">
+   	  		<inject bean="security://DeviceController"/>
+   		</property>
+   		
+   </bean>
+   
+     
+  
+   
+   <!-- Storage services based on Hibernate -->
+   <bean name="/task/HibernateManager" class="org.openmobster.core.common.database.HibernateManager">
+   		<property name="config">taskcrud.cfg.xml</property>
+   </bean>
+   
+   <bean name="/crm/TaskDS" class="org.crud.cloud.crm.hibernate.TaskDS">
+   	  <property name="hibernateManager">
+   	  	<inject bean="/task/HibernateManager"/>
+   	  </property>
+   </bean>
+   
+   
+   <bean name="/crm/ResponseDS" class="org.crud.cloud.crm.hibernate.ResponseDS">
+   	  <property name="hibernateManager">
+   	  	<inject bean="/task/HibernateManager"/>
+   	  </property>
+   	  
+   	  <property name="taskDs">
+   	  	<inject bean="/crm/TaskDS"/>
+   	  </property>
+   	  
+   </bean>
+   
+   <bean name="/crm/DeviceDetailsDS" class="org.crud.cloud.crm.hibernate.DeviceDetailsDS">
+   	  <property name="hibernateManager">
+   	  	<inject bean="/task/HibernateManager"/>
+   	  </property>
+   	  
+   </bean>
+   
+   
+   
+   <!-- Some Cloud Side bootstrappers used to load up test data, and listen for updates to demo "Cloud Push" -->
+   
+   <bean name="/async/getfullresponse" class="org.crud.cloud.crm.bootstrap.AsyncGetFullResponseWithTaskServerId">
+       
+       <property name="ds">
+   	  		<inject bean="/crm/ResponseDS"/>
+   		</property>
+   		<depends>services://MobileObjectMonitor</depends>
+   		<depends>services://MobileServiceMonitor</depends>
+   </bean>
+ 
+   
+   <bean name="/async/createdtasklist" class="org.crud.cloud.crm.bootstrap.AsyncCreatedTaskList">
+       
+       <property name="ds">
+   	  		<inject bean="/crm/TaskDS"/>
+   		</property>
+   		<depends>services://MobileObjectMonitor</depends>
+   		<depends>services://MobileServiceMonitor</depends>
+   </bean>
+   
+   <bean name="/async/assignedtasklist" class="org.crud.cloud.crm.bootstrap.AsyncAssignedTaskList">
+       
+       <property name="ds">
+   	  		<inject bean="/crm/TaskDS"/>
+   		</property>
+   		<depends>services://MobileObjectMonitor</depends>
+   		<depends>services://MobileServiceMonitor</depends>
+   </bean>
+   
+   <bean name="/async/load/deviceslist" class="org.crud.cloud.crm.bootstrap.AsyncListAllDevice">
+       
+       <property name="ds">
+   	  		<inject bean="/crm/DeviceDetailsDS"/>
+   		</property>
+   		<depends>services://MobileObjectMonitor</depends>
+   		<depends>services://MobileServiceMonitor</depends>
+   </bean>
+   
+   <bean name="/async/registerdevice" class="org.crud.cloud.crm.bootstrap.AsyncRegisterDeviceWithDb">
+       <property name="ds">
+   	  		<inject bean="/crm/DeviceDetailsDS"/>
+   		</property>
+   		<depends>services://MobileObjectMonitor</depends>
+   		<depends>services://MobileServiceMonitor</depends>
+   </bean>
+   
+   
+</deployment>
